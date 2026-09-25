@@ -228,7 +228,7 @@ ERADS Frontend is a React-based user interface designed to support ambulance dis
 Clone the repository and install the project dependencies:
 
 ```bash
-git clone <repository-url>
+git clone git@github.com:bergerac5/erads-frontend.git
 cd erads-frontend
 npm install
 ```
