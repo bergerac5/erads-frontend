@@ -62,7 +62,7 @@ const emergencySlice = createSlice({
             })
             .addCase(fecthEmergencyByCode.fulfilled, (state, action) => {
                 state.loading = false;
-                state.lastReported = action.payload;
+                state.tracked = action.payload;
             })
             .addCase(fecthEmergencyByCode.rejected, (state, action) => {
                 state.loading = false;

@@ -1,14 +1,17 @@
-import {z} from "zod";
+import { z } from "zod";
 
 export const emergencySchema = z.object({
-    type: z.enum(["FIRE", "MEDICAL", "POLICE", "NATURAL_DISASTER", "OTHER"], {
-        message: "Emergency Required Type",
-    }),
-    priority: z.enum(["LOW", "MEDIUM", "HIGH"], {
-        message: "Emergency Required Priority",
-    }),
-    discription: z.string().min(10,"Emergency Description must be at least 10 characters long").max(200,"Emergency Description must be at most 200 characters long"),
-    latitude: z
+  type: z.enum(["FIRE", "MEDICAL", "POLICE", "NATURAL_DISASTER", "OTHER"], {
+    message: "Emergency Required Type",
+  }),
+  priority: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"], {
+    message: "Emergency Required Priority",
+  }),
+  description: z
+    .string()
+    .min(10, "Emergency Description must be at least 10 characters long")
+    .max(200, "Emergency Description must be at most 200 characters long"),
+  latitude: z
     .number()
     .min(-90, "Latitude must be >= -90")
     .max(90, "Latitude must be <= 90")
@@ -23,7 +26,5 @@ export const emergencySchema = z.object({
 });
 
 export const trackSchema = z.object({
-  accessCode: z
-    .string()
-    .length(8, "Access code must be 8 characters"),
+  accessCode: z.string().length(8, "Access code must be 8 characters"),
 });
